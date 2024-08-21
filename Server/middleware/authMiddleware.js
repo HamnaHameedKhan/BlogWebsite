@@ -19,7 +19,7 @@ const auth = async (req, res, next) => {
   } catch (err) {
     console.error('Something went wrong with auth middleware', err);
     res.status(401).json({ message: 'Token is not valid' });
-  }
+  }``
 };
 
 module.exports = auth;

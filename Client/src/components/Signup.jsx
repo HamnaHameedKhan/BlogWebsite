@@ -6,6 +6,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const theme = createTheme();
 
@@ -30,7 +31,7 @@ const SignupPage = () => {
     try {
       const res = await axios.post('/api/users/signup', formData);
       console.log(res.data);
-      alert("user created")
+      toast.success("User Registered")
       navigate('/login')
       
     } catch (err) {

@@ -5,6 +5,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from '../axios'
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
@@ -38,7 +39,8 @@ const LoginPage = ({ setIsAuthenticated }) => {
         localStorage.setItem('token', res.data.token);
         console.log('Token:', res.data.token); // Log the token
         setIsAuthenticated(true);
-        alert('User login');
+        // alert('User login');
+        toast.success("Login successfully")
         navigate('/');
       }
     } catch (err) {

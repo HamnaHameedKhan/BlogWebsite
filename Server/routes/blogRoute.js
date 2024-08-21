@@ -40,6 +40,7 @@ router.get('/all_blogs', async (req, res) => {
   try {
     const blogs = await Blog.find();
     res.json(blogs);
+    console.log(blogs);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

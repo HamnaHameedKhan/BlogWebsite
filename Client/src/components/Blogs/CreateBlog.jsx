@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, TextField, Button, Typography, Box, Paper, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import axios from '../../axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const CreateBlog = () => {
@@ -52,11 +53,11 @@ const CreateBlog = () => {
       });
       console.log("blog created data", res.data);
       console.log("blog username", res.data.username);
-      alert('Blog created successfully');
+      toast.success('Blog created successfully');
       navigate('/userBlogs'); 
     } catch (error) {
       console.error(error);
-      alert('Error creating blog');
+      toast.error('Error creating blog');
       console.error('Error details:', {
         message: error.message,
         name: error.name,

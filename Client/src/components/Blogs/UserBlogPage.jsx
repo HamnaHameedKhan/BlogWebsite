@@ -3,6 +3,7 @@ import { Container, Typography, Card, CardMedia, CardContent, Button, Grid, Box 
 import axios from '../../axios';
 import { useNavigate } from 'react-router-dom';
 import '../Blogs/BlogCard.css'
+import { toast } from 'react-toastify';
 
 const UserBlogsPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -46,10 +47,10 @@ const UserBlogsPage = () => {
         },
       });
       setBlogs(blogs.filter(blog => blog._id !== id));
-      alert('Blog deleted successfully');
+      toast.success('Blog deleted successfully');
     } catch (err) {
       console.error(err);
-      alert('Error deleting blog');
+      toast.error('Error deleting blog');
     }
   };
 

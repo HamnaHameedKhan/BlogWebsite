@@ -11,6 +11,9 @@ import CreateBlog from './components/Blogs/CreateBlog';
 import UserBlogsPage from './components/Blogs/UserBlogPage';
 import BlogDetailPage from './components/Blogs/BlogDetailsPage';
 import EditBlogPage from './components/Blogs/EditBlogPage';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
 
@@ -47,6 +50,8 @@ function App() {
   };
   return (
     <BrowserRouter>
+          <ToastContainer />
+
       <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
       <Routes>
         <Route path="/login" element={<LoginPage setIsAuthenticated={setIsAuthenticated} />} />

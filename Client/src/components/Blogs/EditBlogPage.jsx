@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, TextField, Button, Typography, Box, Paper, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from '../../axios';
+import { toast } from 'react-toastify';
 
 const EditBlogPage = () => {
   const { id } = useParams();
@@ -78,11 +79,11 @@ const EditBlogPage = () => {
         },
       });
       console.log("blog created data", res.data);
-      alert('Blog updated successfully');
+      toast.success('Blog updated successfully');
       navigate('/userBlogs');
     } catch (error) {
       console.error('Error updating blog:', error);
-      alert('Error updating blog');
+      toast.error('Error updating blog');
       console.error('Error details:', error.response ? error.response.data : 'No response data');
 
     }
@@ -136,6 +137,9 @@ const EditBlogPage = () => {
               <MenuItem value="travel">Travel</MenuItem>
               <MenuItem value="education">Education</MenuItem>
               <MenuItem value="entertainment">Entertainment</MenuItem>
+              <MenuItem value="politics">Politics</MenuItem>
+              <MenuItem value="life style">Life Style</MenuItem>
+              <MenuItem value="social">Social</MenuItem>
             </Select>
           </FormControl>
           <Button
